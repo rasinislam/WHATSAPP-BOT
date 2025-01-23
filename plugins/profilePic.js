@@ -34,7 +34,7 @@ module.exports = {
       for (const [id, url] of validUrls) {
         const filePath = path.join(cacheDir, `profile_${id}.jpg`);
         const response = await axios.get(url, { responseType: 'arraybuffer' });
-        console.log(url)
+        
         fs.writeFileSync(filePath, Buffer.from(response.data));
 
         
