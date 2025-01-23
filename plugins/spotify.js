@@ -29,11 +29,12 @@ const selectionData = {};
 
     const quotedMessage =
       n.message?.extendedTextMessage?.text || null;
-    
-    
+
+
     if (!quotedMessage) return;
     if (replyMessage !== quotedMessage) return;
-  
+    if(!message?.key.fromMe) return;
+
 
     const selectedIndex = parseInt(body, 10) - 1;
 
