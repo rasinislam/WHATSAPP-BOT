@@ -35,9 +35,12 @@ module.exports = {
     
 
     try {
+
+        const apis = await axios.get('https://raw.githubusercontent.com/MOHAMMAD-NAYAN/Nayan/main/api.json');
+      const apiss = apis.data.api;
       
       const response = await axios.get(
-        `http://5.78.130.60:5009/sim?type=ask&ask=${encodeURIComponent(body)}`
+        `${apiss}/sim?type=ask&ask=${encodeURIComponent(body)}`
       );
 
       const replyText = response.data.data?.msg || "I'm not sure how to respond to that.";
@@ -93,9 +96,11 @@ module.exports = {
     }
 
     try {
+        const apis = await axios.get('https://raw.githubusercontent.com/MOHAMMAD-NAYAN/Nayan/main/api.json');
+      const apiss = apis.data.api;
       
       const response = await axios.get(
-        `http://5.78.130.60:5009/sim?type=ask&ask=${encodeURIComponent(usermsg)}`
+        `${apiss}/sim?type=ask&ask=${encodeURIComponent(usermsg)}`
       );
 
       const replyText = response.data.data?.msg || "I'm not sure how to respond to that.";
