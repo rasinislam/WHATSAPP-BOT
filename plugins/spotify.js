@@ -33,7 +33,7 @@ const selectionData = {};
 
     if (!quotedMessage) return;
     if (replyMessage !== quotedMessage) return;
-    if(!message?.key.fromMe) return;
+    if(!n?.key.fromMe) return;
 
 
     const selectedIndex = parseInt(body, 10) - 1;
