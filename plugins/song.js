@@ -44,7 +44,7 @@ module.exports = {
   config: {
     name: 'song',
     aliases: ['audio'],
-    permission: 2,
+    permission: 0,
     prefix: true,
     description: 'Search and download songs from YouTube.',
     usage: ['song <keyword> - Search and download songs from YouTube.'],
