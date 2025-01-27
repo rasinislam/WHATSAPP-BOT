@@ -39,7 +39,9 @@ module.exports = {
 
     
     try {
-      const response = await axios.get(`http://5.78.130.60:5009/nayan/gpt3?prompt=${encodeURIComponent(userPrompt)}`);
+      const apis = await axios.get('https://raw.githubusercontent.com/MOHAMMAD-NAYAN/Nayan/main/api.json');
+      const apiss = apis.data.api;
+      const response = await axios.get(`${apiss}/nayan/gpt3?prompt=${encodeURIComponent(userPrompt)}`);
       const aiResponse = response.data.response || 'I am unable to process your request at the moment.';
       await api.sendMessage(threadId, { text: aiResponse });
     } catch (error) {
@@ -55,7 +57,9 @@ module.exports = {
     if (isGroup) return;
 
     try {
-      const response = await axios.get(`http://5.78.130.60:5009/nayan/gpt3?prompt=${encodeURIComponent(body)}`);
+      const apis = await axios.get('https://raw.githubusercontent.com/MOHAMMAD-NAYAN/Nayan/main/api.json');
+      const apiss = apis.data.api;
+      const response = await axios.get(`${apiss}/nayan/gpt3?prompt=${encodeURIComponent(body)}`);
       const aiResponse = response.data.response || 'I am unable to process your request at the moment.';
       await api.sendMessage(threadId, { text: aiResponse });
     } catch (error) {
