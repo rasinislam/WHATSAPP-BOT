@@ -17,7 +17,7 @@ module.exports = {
     },
 
   event: async ({ event, api, body }) => {
-    const { threadId, senderId, replyMessage } = event;
+    const { threadId, senderId, replyMessage, message} = event;
 
   
     if (!selectionData[threadId]) return;
@@ -46,7 +46,7 @@ module.exports = {
       const replyText = response.data.data?.msg || "I'm not sure how to respond to that.";
 
       
-      const botReply = await api.sendMessage(threadId, { text: replyText });
+      const botReply = await api.sendMessage(threadId, { text: replyText }, { quoted: message });
 
       
       selectionData[threadId] = {
@@ -63,7 +63,7 @@ module.exports = {
 
   start: async ({ event, api, args }) => {
     const usermsg = args.join(" ");
-    const { threadId, senderId } = event;
+    const { threadId, senderId, message} = event;
 
     
     if (!usermsg) {
@@ -85,7 +85,7 @@ module.exports = {
       const greetingMessage = await api.sendMessage(threadId, {
         text: `@${userToMention.split('@')[0]}, ${randomGreeting}`,
         mentions: [userToMention],
-      });
+      }, { quoted: message });
 
       
       selectionData[threadId] = {
@@ -106,7 +106,7 @@ module.exports = {
       const replyText = response.data.data?.msg || "I'm not sure how to respond to that.";
 
       
-      const botReply = await api.sendMessage(threadId, { text: replyText });
+      const botReply = await api.sendMessage(threadId, { text: replyText }, { quoted: message });
 
       
       selectionData[threadId] = {
