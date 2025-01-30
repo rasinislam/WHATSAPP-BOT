@@ -72,7 +72,7 @@ module.exports = {
     const { threadId, senderId, isGroup } = event;
     incrementMessageCount(threadId, senderId);
   },
-  start: async ({ event, api }) => {
+  start: async ({ event, api, args }) => {
     const { threadId, isGroup } = event;
     const cn = args[0] || 5;
     await topMembers({ sock: api, chatId: threadId, isGroup, cn });
