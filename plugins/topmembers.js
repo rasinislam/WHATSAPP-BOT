@@ -60,6 +60,7 @@ module.exports = {
     aliases: ["top", "leaderboard"],
     permission: 0,
     prefix: true,
+    cooldowns: 5,
     description: "Shows the top 5 members based on message count in the group.",
     usage: [
       `${global.config.PREFIX}topmembers - Displays the top 5 members based on message count.`,
