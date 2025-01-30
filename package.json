@@ -2,7 +2,7 @@
   "name": "NAYAN-WHATSAPP-BOT",
   "version": "1.0.3",
   "description": "WhatsApp Bot Created by Mohammad Nayan",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
