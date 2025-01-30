@@ -25,7 +25,7 @@ function incrementMessageCount(groupId, userId) {
     saveMessageCounts(messageCounts);
 }
 
-async function topMembers({ sock, chatId, isGroup }) {
+async function topMembers({ sock, chatId, isGroup, cn }) {
     if (!isGroup) {
         await sock.sendMessage(chatId, { text: 'This command is only available in group chats.' });
         return;
@@ -36,7 +36,7 @@ async function topMembers({ sock, chatId, isGroup }) {
 
     const sortedMembers = Object.entries(groupCounts)
         .sort(([, countA], [, countB]) => countB - countA)
-        .slice(0, 5);
+        .slice(0, cn);
 
     if (sortedMembers.length === 0) {
         await sock.sendMessage(chatId, { text: 'No message activity recorded yet.' });
@@ -74,6 +74,7 @@ module.exports = {
   },
   start: async ({ event, api }) => {
     const { threadId, isGroup } = event;
-    await topMembers({ sock: api, chatId: threadId, isGroup });
+    const cn = args[0] || 5;
+    await topMembers({ sock: api, chatId: threadId, isGroup, cn });
   },
 };
