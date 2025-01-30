@@ -8,6 +8,7 @@ module.exports = {
     aliases: ["say"],
     permission: 0,
     prefix: true,
+    cooldowns: 5,
     description: "Convert text to speech and send as an audio file.",
     categorie: "Media",
     usages: ["speech <text> - Convert text to speech.", "Reply to a message with 'speech' to convert it."],
