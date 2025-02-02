@@ -9,7 +9,7 @@ module.exports = {
       ".user ban @mention - Bans the mentioned user.",
       ".user unban @mention - Unbans the mentioned user.",
     ],
-    permission: 1,
+    permission: 2,
     prefix: true,
     category: "Moderation",
     credit: "Developed by Mohammad Nayan",
